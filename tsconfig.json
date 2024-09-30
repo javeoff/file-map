@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"strict": true,
+		"module": "node16",
+		"moduleResolution": "node16",
+		"moduleDetection": "force",
+		"target": "ES2022",
+		"resolveJsonModule": false,
+    "skipLibCheck": true
+	},
+	"files": [
+		"index.ts"
+	],
+	"ts-node": {
+		"transpileOnly": true,
+		"files": true,
+		"experimentalResolver": true
+	},
+	"inlude": [
+		"index.ts"
+	]
+}
