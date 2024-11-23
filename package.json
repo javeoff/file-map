@@ -1,6 +1,6 @@
 {
-  "name": "file-map",
-  "version": "1.0.0",
+  "name": "@javeoff/file-map",
+  "version": "4.1.0",
   "description": "",
   "main": "index.js",
 	"types": "index.d.ts",
