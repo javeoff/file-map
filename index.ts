@@ -13,8 +13,8 @@ export class FileMap {
 		interval: number = 10000,
 		private maxMemoryKeys: number = 100
 	) {
-		try {
 		this.map = new Map(entries);
+		try {
 
 		if (existsSync(name)) {
 			const content = readFileSync(name, "utf-8");
