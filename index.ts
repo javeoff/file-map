@@ -1,8 +1,9 @@
-﻿import { writeFileSync, readFileSync, existsSync } from "node:fs";
+﻿import ExpiryMap from "expiry-map";
+import { writeFileSync, readFileSync, existsSync } from "node:fs";
 
 // @ts-ignore
 export class FileMap {
-	private map: Map<string, any>;
+	private map: ExpiryMap<string, any>;
 	private dirtyKeys: Set<string> = new Set();
 	private fileCache: Record<string, any> = {};
 	private intervalId?: NodeJS.Timeout;
@@ -11,9 +12,10 @@ export class FileMap {
 		private name: string,
 		entries?: ReadonlyArray<[string, any]> | null,
 		interval: number = 10000,
-		private maxMemoryKeys: number = 100
+		private maxMemoryKeys: number = 100,
+		maxAge = 1000 * 60 * 60 * 6,
 	) {
-		this.map = new Map(entries);
+		this.map = new ExpiryMap(maxAge, entries);
 		try {
 
 		if (existsSync(name)) {
